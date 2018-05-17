@@ -7,6 +7,8 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
+    padding: 1em;
 `;
 
 class Input extends React.Component {
@@ -31,6 +33,9 @@ class Input extends React.Component {
         this.props.send({
             username,
             message
+        });
+        this.setState({
+            message: ""
         });
     };
 

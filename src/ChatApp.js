@@ -1,5 +1,6 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import styled from "styled-components";
 
 import { createStore, firebaseMiddleware } from "blockchain-redux";
 import * as firebase from "firebase";
@@ -9,6 +10,11 @@ import Input from "./Input";
 import { ChatProvider } from "./ChatContext";
 import chatReducer from "./reducer";
 import { addMessage } from "./actions";
+
+const ChatColumns = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
 
 class ChatApp extends React.Component {
     blockchain = {};
@@ -50,10 +56,10 @@ class ChatApp extends React.Component {
         return (
             <MuiThemeProvider>
                 <ChatProvider value={this.blockchain}>
-                    <div>
-                        <Messages />
+                    <ChatColumns>
                         <Input send={this.sendMessage} />
-                    </div>
+                        <Messages />
+                    </ChatColumns>
                 </ChatProvider>
             </MuiThemeProvider>
         );
