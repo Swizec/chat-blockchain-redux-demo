@@ -8,6 +8,7 @@ import Messages from "./Messages";
 import Input from "./Input";
 import { ChatProvider } from "./ChatContext";
 import chatReducer from "./reducer";
+import { addMessage } from "./actions";
 
 class ChatApp extends React.Component {
     blockchain = {};
@@ -35,13 +36,22 @@ class ChatApp extends React.Component {
         this.unsubscribe();
     }
 
+    sendMessage = ({ username, message }) => {
+        this.blockchain.dispatch(
+            addMessage({
+                username,
+                message
+            })
+        );
+    };
+
     render() {
         return (
             <MuiThemeProvider>
                 <ChatProvider blockchain={this.blockchain}>
                     <div>
                         <Messages />
-                        <Input />
+                        <Input send={this.sendMessage} />
                     </div>
                 </ChatProvider>
             </MuiThemeProvider>
