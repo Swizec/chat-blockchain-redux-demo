@@ -11,7 +11,13 @@ class App extends Component {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1 className="App-title">
-                        Chat app example built with blockchain-redux
+                        Chat app example built with{" "}
+                        <a
+                            href="https://github.com/Swizec/blockchain-redux"
+                            style={{ color: "white" }}
+                        >
+                            blockchain-redux
+                        </a>
                     </h1>
                 </header>
                 <ChatApp />
