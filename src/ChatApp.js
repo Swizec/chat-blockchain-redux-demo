@@ -29,6 +29,7 @@ class ChatApp extends React.Component {
             console.log("Update received");
             this.forceUpdate();
         });
+        console.log("Blockchain inited!");
         this.forceUpdate();
     };
 
@@ -48,7 +49,7 @@ class ChatApp extends React.Component {
     render() {
         return (
             <MuiThemeProvider>
-                <ChatProvider blockchain={this.blockchain}>
+                <ChatProvider value={this.blockchain}>
                     <div>
                         <Messages />
                         <Input send={this.sendMessage} />
